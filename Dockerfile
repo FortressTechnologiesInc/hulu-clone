@@ -10,7 +10,9 @@ RUN npm install -g serve
 
 # Clone the GitHub repository
 RUN git clone https://github.com/somanath-goudar/hulu-clone.git /app
-
+ARG TMDB_V3_API_KEY
+ENV VITE_APP_TMDB_V3_API_KEY=${TMDB_V3_API_KEY}
+ENV VITE_APP_API_ENDPOINT_URL="https://api.themoviedb.org/3"
 # Set the working directory to the cloned repository
 WORKDIR /app
 COPY ./ /app/
